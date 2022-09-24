@@ -1,35 +1,24 @@
-export default {
-  fetch: (req, env) => env.SOURCES.get(env.SOURCES.idFromName(new URL(req.url).hostname)).fetch(req)
+export const api = {
+  icon: '🚀',
+  name: 'sources.do',
+  description: 'Data Source Management & Proxy',
+  url: 'https://sources.do/api',
+  type: 'https://apis.do/data',
+  endpoints: {
+    sources: 'https://sources.do/subscribe',
+  },
+  site: 'https://sources.do',
+  login: 'https://sources.do/login',
+  signup: 'https://sources.do/signup',
+  subscribe: 'https://sources.do/subscribe',
+  repo: 'https://github.com/drivly/sources.do',
 }
 
-export class Countries {
-  constructor(state, env) {
-    this.state = state
-    this.state.blockConcurrencyWhile(async () => {
-      const this.config = await this.state.storage.get('config')
-    })
-  }
-  async fetch(req) {
-    const { pathname, search, searchParams } = new URL(req.url)
-    const options = Object.fromEntries(searchParams)
-    const [_, ...args] = pathname.split('/').map(arg => decodeURI(arg))
-    const data = args && args[0] ? await this.state.storage.get(args[0]) : 
-                                   await this.state.storage.list(options).then(list => Object.fromEntries(list)) 
-    return new Response(JSON.stringify({ 
-      api: {
-        name: 'sources.do',
-        icon: '⚡️',
-        endpoints: {
-          countries: 'https://countries.do.cf/?prefix=name.common',
-          borders: 'https://countries.do.cf/?prefix=borders', 
-        }
-      },
-      args,
-      options,
-      data,
-      user: {
-        
-      }
-    }, null, 2), { headers: { 'content-type': 'application/json; charset=utf-8' }})
-  }
+export default {
+  fetch: async (req, env) => {
+    const { user, origin, requestId, method, body, time, pathname, pathSegments, pathOptions, url, query } = await env.CTX.fetch(req).then(res => res.json())
+    if (pathname == '/subscribe' && !user.profile) return Response.redirect(origin + '/login')
+
+    return new Response(JSON.stringify({ api, user }, null, 2), { headers: { 'content-type': 'application/json; charset=utf-8' }})
+  },
 }
