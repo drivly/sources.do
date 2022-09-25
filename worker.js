@@ -22,7 +22,7 @@ export default {
     const { user, origin, requestId, method, body, time, pathname, pathSegments, pathOptions, url, query } = await env.CTX.fetch(req).then(res => res.json())
     if (pathname != '/api' && !user.profile) return Response.redirect(origin + '/login')
     let [source, resource] = pathSegments
-    const help = source == ':source' ? "Change ':source' in the URL to your desired source name" : undefined
-    return new Response(JSON.stringify({ api, source, resource, help, user }, null, 2), { headers: { 'content-type': 'application/json; charset=utf-8' }})
+    const error = source == ':source' ? "Change ':source' in the URL to your desired source name" : undefined
+    return new Response(JSON.stringify({ api, source, resource, error, user }, null, 2), { headers: { 'content-type': 'application/json; charset=utf-8' }})
   },
 }
