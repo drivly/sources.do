@@ -6,7 +6,7 @@ export const api = {
   type: 'https://apis.do/data',
   endpoints: {
     listSources: 'https://sources.do/sources',
-    newSource: 'https://sources.do/:source',
+    configureSource: 'https://sources.do/:source/set?target=example.com/api',
     listResources: 'https://sources.do/:source',
     getResource: 'https://sources.do/:source/:resource',
   },
@@ -21,7 +21,8 @@ export default {
   fetch: async (req, env) => {
     const { user, origin, requestId, method, body, time, pathname, pathSegments, pathOptions, url, query } = await env.CTX.fetch(req).then(res => res.json())
     if (pathname != '/api' && !user.profile) return Response.redirect(origin + '/login')
-
-    return new Response(JSON.stringify({ api, user }, null, 2), { headers: { 'content-type': 'application/json; charset=utf-8' }})
+    let [source, resource] = pathSegments
+    const help = source == ':source' ? "Change ':source' in the URL to your desired source name" : undefined
+    return new Response(JSON.stringify({ api, source, resource, help, user }, null, 2), { headers: { 'content-type': 'application/json; charset=utf-8' }})
   },
 }
