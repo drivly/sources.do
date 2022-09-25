@@ -6,3 +6,7 @@ compatibility_date = "2022-08-25"
 services = [
   { binding = "CTX", service = "ctx-do", environment = "production" }
 ]
+
+kv_namespaces = [
+  { binding = "SOURCES", id = "785114419d074df8ac1d7b7ddbdd517d", preview_id = "785114419d074df8ac1d7b7ddbdd517d" }
+]
