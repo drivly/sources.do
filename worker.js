@@ -6,6 +6,7 @@ export const api = {
   type: 'https://apis.do/data',
   endpoints: {
     listSources: 'https://sources.do/sources',
+    newSource: 'https://sources.do/:source',
     listResources: 'https://sources.do/:source',
     getResource: 'https://sources.do/:source/:resource',
   },
