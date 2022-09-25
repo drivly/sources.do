@@ -5,7 +5,9 @@ export const api = {
   url: 'https://sources.do/api',
   type: 'https://apis.do/data',
   endpoints: {
-    sources: 'https://sources.do/subscribe',
+    listSources: 'https://sources.do/sources',
+    listResources: 'https://sources.do/:source',
+    getResource: 'https://sources.do/:source/:resource',
   },
   site: 'https://sources.do',
   login: 'https://sources.do/login',
