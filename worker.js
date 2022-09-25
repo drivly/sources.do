@@ -1,5 +1,5 @@
 export const api = {
-  icon: '🚀',
+  icon: '⚡️',
   name: 'sources.do',
   description: 'Data Source Management & Proxy',
   url: 'https://sources.do/api',
