@@ -1,0 +1,14 @@
+{
+  "name": "sources.do",
+  "description": "Data Source Management & Proxy",
+  "url": "https://sources.do/api",
+  "type": "https://apis.do/api",
+  "endpoints": {
+    "api": "https://sources.do/api"
+  },
+  "site": "https://sources.do",
+  "login": "https://sources.do/login",
+  "signup": "https://sources.do/signup",
+  "subscribe": "https://sources.do/subscribe",
+  "repo": "https://github.com/drivly/sources.do"
+}
