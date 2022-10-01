@@ -1,0 +1,26 @@
+{
+  "name": "sources.do",
+  "version": "0.0.1",
+  "description": "Dynamic API Source Management",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts", 
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drivly/sources.do.git"
+  },
+  "author": "Nathan Clevenger",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/drivly/sources.do/issues"
+  },
+  "homepage": "https://sources.do"
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "Drivly",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}
