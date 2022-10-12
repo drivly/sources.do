@@ -14,12 +14,10 @@
   "bugs": {
     "url": "https://github.com/drivly/sources.do/issues"
   },
-  "homepage": "https://sources.do"
+  "homepage": "https://sources.do",
   "scripts": {
     "build": "tsc"
   },
-  "author": "Drivly",
-  "license": "MIT",
   "devDependencies": {
     "@cloudflare/workers-types": "^3.16.0",
     "typescript": "^4.8.4"
