@@ -1,5 +1,5 @@
 name = "sources-do"
-route = { pattern = "*/*", zone_name = "sources.do" }
+# route = { pattern = "*/*", zone_name = "sources.do" }
 main = "worker.js"
 compatibility_date = "2022-08-25"
 
